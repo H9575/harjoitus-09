@@ -1,0 +1,57 @@
+/*	Jani Kähkönen/H9575
+Harjoitus_9	19.9.2014	*/
+
+#include <iostream>
+using namespace std;
+
+class Laskin
+{
+	int _luku_1, _luku_2,_tulos,_valinta;
+public:
+	Laskin() :_luku_1(0), _luku_2(0), _valinta(0), _tulos(0){}
+	void Tiedot(int luku_1, int luku_2)
+	{
+		_luku_1 = luku_1;
+		_luku_2 = luku_2;
+	}
+	void Laske()
+	{
+		cout << "1: " << "Summa\n" << "2: " << "Erotus\n" << "3: " << "Tulo\n" << "4: " << "Osamaara\n" << "5: " << "Jakojaannos\n";
+		cout << "Valinta: "; cin >> _valinta;
+		switch (_valinta)
+		{
+		case(1) :
+			_tulos = _luku_1 + _luku_2;
+			break;
+		case(2) :
+			_tulos = _luku_1 - _luku_2;
+			break;
+		case(3) :
+			_tulos = _luku_1 * _luku_2;
+			break;
+		case(4) :
+			_tulos = _luku_1 / _luku_2;
+			break;
+		case(5) :
+			_tulos = _luku_1 % _luku_2;
+			break;
+		default:
+			break;
+		}
+	}
+	int Tulos(){ return _tulos; }
+	~Laskin(){}
+};
+
+int main()
+{
+	Laskin laskin;
+	int luku_1, luku_2;
+	cout << "Anna 1 luku: ";cin >> luku_1;
+	cout << "Anna 1 luku: "; cin >> luku_2;
+
+	laskin.Tiedot(luku_1, luku_2);
+	laskin.Laske();
+
+	cout << "Tulos: " << laskin.Tulos() << endl;
+}
